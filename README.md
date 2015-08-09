@@ -30,7 +30,7 @@ POL_POM_QT_PLUGINS_VIRTUALDRIVEMANAGER
   (A plugin that registers to the main widget's show event signal, populates a list of available virtual drives, and sends them back to the main widget's onvirtualdrivelistchange slot)
 
 # Qt version
-This project has been built on Qt5. It should be compilable on Qt4 but this has not yet been tested.
+This project has been built on Qt5. It should compile on Qt4 but this has not yet been tested.
 
 # Disclaimer
 A little disclaimer. This project isn't in any way a replacement of the original PlayOnLinux implementation. See this as a study into alternative technologies which is shared in good open source tradition. Full credits for the original idea of PlayOnLinux go to the original PlayOnLinux developers. 
