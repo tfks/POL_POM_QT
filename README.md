@@ -1,5 +1,5 @@
 # POL_POM_QT
-Proof of concept project to see whether it is feasable to have a plugin based PlayOnLinux implementation based on Qt.
+Proof of concept project to see whether it is feasible to have a plugin based PlayOnLinux implementation based on Qt.
 
 The idea is to use Qt based plugin libraries to manage a specific part of the application. The UI part provides the signals and slots to which plugins can register.
 
