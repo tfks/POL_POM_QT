@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QActionGroup>
+#include <QCloseEvent>
 
 #include "constants.h"
 #include "../../POL_POM_QT_LIB_VIRTUALDRIVE/virtualdriveitem.h"
@@ -26,6 +27,8 @@ private slots:
 
     void on_action_About_PlayOnLinux_triggered();
 
+    void on_actionAbout_Qt_triggered();
+
     void on_SwitchToVirtualDrivesOrBouquets_toggle();
 
     void on_pbtnAddVirtualDrive_clicked();
@@ -45,6 +48,9 @@ private:
     QList<IPluginInterface*> loadedPlugins;
 
     bool virtualDrivesVisible;
+
+    void readWindowState();
+    void writeWindowState();
 
     void setupFolderViewStyleGroup();
     void set_SwitchToVirtualDrivesOrBouquets_toggle(bool virtualDrivesVisible);

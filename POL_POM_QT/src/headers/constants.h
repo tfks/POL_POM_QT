@@ -4,6 +4,7 @@
 #include <string>
 
 const std::string POL_URL = "http://www.playonlinux.com";
+const std::string POL_PLUGIN_DIR = "plugins";
 
 const std::string POL_BOUQUETS = QT_TR_NOOP("Bouquets");
 const std::string POL_VIRTUAL_DRIVES = QT_TR_NOOP("Virtual Drives");

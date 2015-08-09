@@ -41,7 +41,7 @@
      <number>0</number>
     </property>
     <item>
-     <widget class="QSplitter" name="splitter">
+     <widget class="QSplitter" name="spltrApplicationsVirtualDrivesAndBouquets">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
@@ -668,7 +668,7 @@
          <number>0</number>
         </property>
         <item>
-         <widget class="QSplitter" name="splitter_2">
+         <widget class="QSplitter" name="spltrApplicationControlnfoHeader">
           <property name="orientation">
            <enum>Qt::Vertical</enum>
           </property>

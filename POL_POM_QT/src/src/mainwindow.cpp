@@ -37,7 +37,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     this->setupFolderViewStyleGroup();
 
-    this->restoreState(settings.value("mainWindowState").toByteArray());
+    this->readWindowState();
 
     this->loadPlugins();
 
@@ -49,6 +49,38 @@ MainWindow::~MainWindow()
     delete this->folderViewStyleGroup;
 
     delete ui;
+}
+
+void MainWindow::readWindowState()
+{
+    QSettings settings;
+
+    QByteArray spltrApplicationsVirtualDrivesAndBouquetsState = settings.value("spltrApplicationsVirtualDrivesAndBouquetsState", QByteArray()).toByteArray();
+
+    QPoint pos = settings.value("pos", QPoint(200, 200)).toPoint();
+
+    QSize size = settings.value("size", QSize(400, 400)).toSize();
+
+    QByteArray state = settings.value("state", QByteArray()).toByteArray();
+
+    this->restoreState(state);
+    this->resize(size);
+    this->move(pos);
+
+    this->ui->spltrApplicationsVirtualDrivesAndBouquets->restoreState(spltrApplicationsVirtualDrivesAndBouquetsState);
+}
+
+void MainWindow::writeWindowState()
+{
+    QSettings settings;
+
+    settings.setValue("pos", this->pos());
+    settings.setValue("size", this->size());
+    settings.setValue("state", this->saveState());
+
+    QByteArray spltrApplicationsVirtualDrivesAndBouquetsState = this->ui->spltrApplicationsVirtualDrivesAndBouquets->saveState();
+
+    settings.setValue("spltrApplicationsVirtualDrivesAndBouquetsState", spltrApplicationsVirtualDrivesAndBouquetsState);
 }
 
 void MainWindow::setupFolderViewStyleGroup()
@@ -93,16 +125,14 @@ void MainWindow::showEvent(QShowEvent *event)
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
-    Q_UNUSED(event);
+    this->writeWindowState();
 
-    QSettings settings;
-    settings.setValue("mainWindowGeometry", saveGeometry());
-    settings.setValue("mainWindowState", saveState());
+    event->accept();
 }
 
 void MainWindow::on_actionExit_triggered()
 {
-    QApplication::quit();
+    this->close();
 }
 
 void MainWindow::on_action_About_PlayOnLinux_triggered()
@@ -110,6 +140,11 @@ void MainWindow::on_action_About_PlayOnLinux_triggered()
     DialogAbout * dialogAbout = new DialogAbout(this);
     dialogAbout->exec();
     delete dialogAbout;
+}
+
+void MainWindow::on_actionAbout_Qt_triggered()
+{
+    QApplication::aboutQt();
 }
 
 void MainWindow::on_SwitchToVirtualDrivesOrBouquets_toggle()
@@ -229,7 +264,7 @@ bool MainWindow::loadPlugins()
         }
     #endif
 
-    pluginsDir.cd("plugins");
+    pluginsDir.cd(QString::fromStdString(POL_PLUGIN_DIR));
 
     pluginsDir.setNameFilters(QStringList()<<"*.so");
 
