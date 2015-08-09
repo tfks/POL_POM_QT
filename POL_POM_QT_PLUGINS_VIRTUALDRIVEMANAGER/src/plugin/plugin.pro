@@ -11,7 +11,7 @@ CONFIG         += plugin
 QT             += widgets
 INCLUDEPATH    += ../../../POL_POM_QT/src
 TARGET          = $$qtLibraryTarget(VirtualDriveManagerPlugin)
-DESTDIR         = ../../build-POL_POM_QT-Desktop-Debug/plugins
+DESTDIR         = ../../POL_POM_QT/plugins/ #../../build-POL_POM_QT-Desktop-Debug/plugins
 
 unix {
     target.path = /usr/lib
