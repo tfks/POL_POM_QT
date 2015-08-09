@@ -3,12 +3,14 @@ Proof of concept project to see whether it is feasible to have a plugin based Pl
 
 The idea is to use Qt based plugin libraries to manage a specific part of the application. The UI part provides the signals and slots to which plugins can register.
 
-This makes for good separation of conserns since the UI parts -such as the main widget- only have logic to update their UI elements and provide signals and slots to send and receive data.
+This makes for a good separation of concern principle since the UI parts -such as the main widget- only have logic to update their UI elements and provide signals and slots to send and receive data.
 
-The plugin system also makes it easier for others to develop a new feature without having to change the main application. If -for instance- someone wants to do something with the list of virtual drives in the main widget the only thing the developer needs to do is register to the signal that is triggered at the event that needs to be intercepted, work on the list of items and send a signal back containing the updated list.
+The plugin system also makes it easier for others to develop a new feature without having to change the main application. If -for instance- someone wants to do something with the list of virtual drives in the main widget the only thing the developer needs to do is register to the signal that is triggered at the event that needs to be intercepted, then work on the list of items and finally send a signal back containing the updated list. The event can be the main widget showing or a button being pressed.
 
 The following rules should be kept in mind when developing this application.
 The main application dictates what can be done with it. When a plugin should be allowed to add a button to the main widget then the main widget should provide a signal to do so. There is no direct interaction with the main applications UI elements from a plugin.
+
+Thus, the main application provides an API for the plugin developers to use.
 
 # Project structure
 Currently the structure is as follows.
