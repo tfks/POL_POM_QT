@@ -8,9 +8,10 @@ This makes for a good separation of concern principle since the UI parts -such a
 The plugin system also makes it easier for others to develop a new feature without having to change the main application. If -for instance- someone wants to do something with the list of virtual drives in the main widget the only thing the developer needs to do is register to the signal that is triggered at the event that needs to be intercepted, then work on the list of items and finally send a signal back containing the updated list. The event can be the main widget showing or a button being pressed.
 
 The following rules should be kept in mind when developing this application.
-The main application dictates what can be done with it. When a plugin should be allowed to add a button to the main widget then the main widget should provide a signal to do so. There is no direct interaction with the main applications UI elements from a plugin.
 
-Thus, the main application provides an API for the plugin developers to use.
+1. The main application dictates what can be done with it. When a plugin should be allowed to add a button to the main widget then the main widget should provide a signal to do so. There is no direct interaction with the main applications UI elements from a plugin. Thus the main application provides an API for the plugin developers to use.
+
+2. Libraries should not cross reference. For instance. The common library is used by the virtual drive library. Therefore the methods in the common library should be of a lower level type than the methods in the virtual drive library. In other words, the common library should hold methods that handle very basic functionality which can be used in all layers of the application, the virtual drive library handles solely virtual drive functionality. The virtual drive library can use the basic functionality of the common library but never vice versa.
 
 # Project structure
 Currently the structure is as follows.
