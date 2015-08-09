@@ -1,6 +1,0 @@
-#include "steamplugin.h"
-
-
-POL_POM_QT_PLUGINS_STEAM::POL_POM_QT_PLUGINS_STEAM()
-{
-}
