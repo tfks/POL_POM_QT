@@ -10,6 +10,7 @@ The plugin system also makes it easier for others to develop a new feature witho
 The following rules should be kept in mind when developing this application.
 The main application dictates what can be done with it. When a plugin should be allowed to add a button to the main widget then the main widget should provide a signal to do so. There is no direct interaction with the main applications UI elements from a plugin.
 
+# Project structure
 Currently the structure is as follows.
 
 POL_POM_QT 
@@ -28,4 +29,8 @@ POL_POM_QT_PLUGINS_STEAM
 POL_POM_QT_PLUGINS_VIRTUALDRIVEMANAGER
   (A plugin that registers to the main widget's show event signal, populates a list of available virtual drives, and sends them back to the main widget's onvirtualdrivelistchange slot)
 
+# Qt version
+This project has been built on Qt5. It should be compilable on Qt4 but this has not yet been tested.
+
+# Disclaimer
 A little disclaimer. This project isn't in any way a replacement of the original PlayOnLinux implementation. See this as a study into alternative technologies which is shared in good open source tradition. Full credits for the original idea of PlayOnLinux go to the original PlayOnLinux developers. 
