@@ -62,7 +62,7 @@ This structure has been set-up to being able to directly debug both main applica
 
 It is also possible to let QT Creator generate the build directories with the version information but then the *.pro files need to be edited to target the correct build directory of the main application. To do this, change the target in the library / plugin projects and the library paths in all consuming projects to find the libraries which are copied to /lib.
 
-For plugin projects look at the DESTDIR variable. For libraries look at the TARGET variable.
+For plugin projects change the DESTDIR variable. For libraries change the TARGET variable.
 
 # Qt version
 This project has been built on Qt5. It should compile on Qt4 but this has not yet been tested.
