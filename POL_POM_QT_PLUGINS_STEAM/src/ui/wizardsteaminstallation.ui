@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>WizardSteamInstallation</class>
+ <widget class="QWizard" name="WizardSteamInstallation">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Wizard</string>
+  </property>
+  <widget class="QWizardPage" name="wpIntroduction">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QGroupBox" name="gbxSideBarIntroduction">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>156</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-image: url(:/wizardsteaminstallation/backdrop-add);
+background-repeat: no-repeat;
+background-position: top left;
+
+</string>
+      </property>
+      <property name="title">
+       <string notr="true"/>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+      <widget class="QLabel" name="lblPlusIntroduction">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>51</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string notr="true"/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="../../../POL_POM_QT/src/resources/mainwindowres.qrc">:/mainwindow/add_plus_48</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="gbxIntroductionContent">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>1</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>331</height>
+       </size>
+      </property>
+      <property name="title">
+       <string>Create Steam Installation</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLabel" name="lblIntroduction">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Use this wizard to create a new Steam installation.
+
+Steam installs many different games. Normally these games would be installled into the same Virtual Drive as Steam itself. This poses a potential problem since the power of the use of separate Virtual Drives to provide for the specific requirements a game may need to run.
+
+This wizard will help you install one instance of Steam while still being able to run installed games in their own Virtual Drive.</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWizardPage" name="wpCreateSteamVirtualDrive"/>
+  <widget class="QWizardPage" name="wpSelectSteamInstalller"/>
+  <widget class="QWizardPage" name="wpSelectSteamLibraryFolder"/>
+ </widget>
+ <resources>
+  <include location="../../../POL_POM_QT/src/resources/mainwindowres.qrc"/>
+ </resources>
+ <connections/>
+</ui>

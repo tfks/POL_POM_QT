@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/dialogs">
+        <file alias="pol_banner">graphics/banners/playonlinux.jpg</file>
+        <file alias="pom_banner">graphics/banners/playonmac.jpg</file>
+    </qresource>
+</RCC>

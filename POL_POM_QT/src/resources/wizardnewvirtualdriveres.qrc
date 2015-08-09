@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/wizardnewvirtualdrive">
+        <file alias="backdrop_add">graphics/icons/add/backdrop-add.png</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/common">
+        <file alias="playonlinux">graphics/icons/playonlinux.png</file>
+        <file alias="playonlinux32">graphics/icons/playonlinux32.png</file>
+    </qresource>
+</RCC>

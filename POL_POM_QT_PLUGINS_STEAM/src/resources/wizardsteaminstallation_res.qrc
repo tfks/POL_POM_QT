@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/wizardsteaminstallation">
+        <file alias="backdrop-add">graphics/backdrop-add.png</file>
+    </qresource>
+</RCC>

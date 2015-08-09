@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DialogConfigureVirtualDrive</class>
+ <widget class="QDialog" name="DialogConfigureVirtualDrive">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Confgure Virtual Drive</string>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QGroupBox" name="gbxContent">
+     <property name="title">
+      <string notr="true"/>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QGroupBox" name="groupBox">
+        <property name="title">
+         <string notr="true"/>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <property name="spacing">
+          <number>20</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>Configure Virtual Drive</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="lblGeneralVirtualDriveName">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>1</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>No Virtual Drive selected</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QTabWidget" name="twConfiguration">
+        <property name="tabShape">
+         <enum>QTabWidget::Rounded</enum>
+        </property>
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <widget class="QWidget" name="tabGeneral">
+         <attribute name="icon">
+          <iconset resource="mainwindowres.qrc">
+           <normaloff>:/mainwindow/config</normaloff>:/mainwindow/config</iconset>
+         </attribute>
+         <attribute name="title">
+          <string>General</string>
+         </attribute>
+         <layout class="QFormLayout" name="formLayout">
+          <item row="0" column="0">
+           <widget class="QLabel" name="lblGeneralName">
+            <property name="text">
+             <string>Name</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="leGeneralName"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="lblGeneralWineVersion">
+            <property name="text">
+             <string>WINE version</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QComboBox" name="cbxGeneralWineVersion"/>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="lblGeneralDebugFlags">
+            <property name="text">
+             <string>Debug flags</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="leGeneralDebugFlags"/>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="tabWine">
+         <attribute name="icon">
+          <iconset resource="mainwindowres.qrc">
+           <normaloff>:/mainwindow/wine</normaloff>:/mainwindow/wine</iconset>
+         </attribute>
+         <attribute name="title">
+          <string>WINE</string>
+         </attribute>
+        </widget>
+        <widget class="QWidget" name="tabInstallComponents">
+         <attribute name="icon">
+          <iconset resource="mainwindowres.qrc">
+           <normaloff>:/mainwindow/pol32</normaloff>:/mainwindow/pol32</iconset>
+         </attribute>
+         <attribute name="title">
+          <string>Install components</string>
+         </attribute>
+        </widget>
+        <widget class="QWidget" name="tabDisplay">
+         <attribute name="icon">
+          <iconset resource="mainwindowres.qrc">
+           <normaloff>:/mainwindow/video_display</normaloff>:/mainwindow/video_display</iconset>
+         </attribute>
+         <attribute name="title">
+          <string>Display</string>
+         </attribute>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="btnbOkCancel">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="mainwindowres.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>btnbOkCancel</sender>
+   <signal>accepted()</signal>
+   <receiver>DialogConfigureVirtualDrive</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnbOkCancel</sender>
+   <signal>rejected()</signal>
+   <receiver>DialogConfigureVirtualDrive</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

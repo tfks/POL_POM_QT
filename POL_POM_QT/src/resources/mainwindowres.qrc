@@ -1,0 +1,31 @@
+<RCC>
+    <qresource prefix="/mainwindow">
+        <file alias="pol32">graphics/icons/playonlinux32.png</file>
+        <file alias="config">graphics/icons/configure.png</file>
+        <file alias="shortcut">graphics/icons/shortcut.png</file>
+        <file alias="config_wine">graphics/icons/wine-winecfg.png</file>
+        <file alias="regedit">graphics/icons/registry.png</file>
+        <file alias="open_dir">graphics/icons/folder-wine.png</file>
+        <file alias="cmd_prompt">graphics/icons/console.png</file>
+        <file alias="doc_new">graphics/icons/document-new.png</file>
+        <file alias="add_plus">graphics/icons/add.png</file>
+        <file alias="delete">graphics/icons/delete.png</file>
+        <file alias="add_plus_48">graphics/icons/48/install.png</file>
+        <file alias="delete_48">graphics/icons/48/delete.png</file>
+        <file alias="bouquet">graphics/icons/bouquet.png</file>
+        <file alias="virtual_drive">graphics/icons/virtual_drive.png</file>
+        <file alias="play">graphics/icons/play.png</file>
+        <file alias="stop">graphics/icons/stop.png</file>
+        <file alias="package">graphics/icons/package-x-generic.png</file>
+        <file alias="wine">graphics/icons/wine.png</file>
+        <file alias="pol_shell">graphics/icons/polshell.png</file>
+        <file alias="debug">graphics/icons/bug.png</file>
+        <file alias="kill_all">graphics/icons/killall.png</file>
+        <file alias="news">graphics/icons/internet-news-reader.png</file>
+        <file alias="internet">graphics/icons/internet-web-browser.png</file>
+        <file alias="internet_group_chat">graphics/icons/internet-group-chat.png</file>
+        <file alias="manual">graphics/icons/manual.png</file>
+        <file alias="monitor">graphics/icons/monitor.png</file>
+        <file alias="video_display">graphics/icons/video-display.png</file>
+    </qresource>
+</RCC>

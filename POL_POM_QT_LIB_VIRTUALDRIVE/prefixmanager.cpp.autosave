@@ -1,0 +1,33 @@
+#include <QDir>
+
+#include "prefixmanager.h"
+
+PrefixManager::PrefixManager()
+{
+
+}
+
+QList<Prefix> PrefixManager::getListOfPrefixes()
+{
+    QStringList prefixes = QStringList();
+    
+    QDir prefixesDir = QDir::home();
+    
+    if (prefixesDir.cd(".PlayOnLinux")) 
+    {
+        if (prefixesDir.cd("wineprefix")) 
+        {
+            QDirIterator dirIterator(prefixesDir, QDir::Dirs); 
+            
+            while (dirIterator.hasNext()) 
+            {
+                QString dirName = dirIterator.next();
+
+                if(dirName != "default")
+                {
+                    prefixes.append(dirName);                    
+                }
+            }
+        }
+    }
+}

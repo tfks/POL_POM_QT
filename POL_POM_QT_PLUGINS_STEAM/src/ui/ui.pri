@@ -1,0 +1,3 @@
+
+FORMS += \
+    $$PWD/wizardsteaminstallation.ui

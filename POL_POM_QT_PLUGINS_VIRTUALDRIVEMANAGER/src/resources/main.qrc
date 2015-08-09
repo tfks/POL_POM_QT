@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/plugvdm/main">
+        <file alias="playonlinux">graphics/playonlinux.png</file>
+    </qresource>
+</RCC>
