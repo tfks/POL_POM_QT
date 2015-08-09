@@ -39,27 +39,30 @@ Since the application uses libraries which require debugging, a system of auto d
 	<project-root>
 		build/
 			POL_POM_QT/
-				/lib (location for storing the built libraries / plugins)
+				/lib (location for storing the built libraries)
+				/plugins (location for storing the built plugins)
   
 			POL_POM_QT_LIB_COMMON/
 				(all build files for the common library)
-				(so files are copied to /lib on build)
+				(*.so files are copied to /lib on build)
 
 			POL_POM_QT_LIB_VIRTUALDRIVE/
 				(all build files for the virtual drive library)
-				(so files are copied to /lib on build)
+				(*.so files are copied to /lib on build)
 
 			POL_POM_QT_PLUGINS_STEAM/
 				(all build files for the steam installer plugin library)
-				(so files are copied to /lib on build)
+				(*.so files are copied to /plugins on build)
   
 			POL_POM_QT_PLUGINS_VIRTUALDRIVEMANAGER/
 				(all build files for the virtual drive manager plugin library)
-				(so files are copied to /lib on build)
+				(*o files are copied to /plugins on build)
 
 This structure has been set-up to being able to directly debug both main application and libraries / plugins.
 
-It is also possible to let QT Creator generate the build directories with the version information but then the pro files need to be edited to target the correct build directory of the main application. To do this, change the target in the library / plugin projects and the library paths in all consuming projects to find the libraries which are copied to /lib.
+It is also possible to let QT Creator generate the build directories with the version information but then the *.pro files need to be edited to target the correct build directory of the main application. To do this, change the target in the library / plugin projects and the library paths in all consuming projects to find the libraries which are copied to /lib.
+
+For plugin projects look at the DESTDIR variable. For libraries look at the TARGET variable.
 
 # Qt version
 This project has been built on Qt5. It should compile on Qt4 but this has not yet been tested.
