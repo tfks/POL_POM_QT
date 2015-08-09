@@ -1,4 +1,4 @@
-#include <QtWidgets>
+//#include <QtWidgets>
 #include <QMainWindow>
 
 #include "../headers/virtualdrivemanagerplugin.h"

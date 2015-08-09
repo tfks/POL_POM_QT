@@ -20,11 +20,6 @@ HEADERS +=\
         pol_pom_qt_lib_common_global.h \
     configfilemanager.h
 
-unix: LIBS += -L$$PWD/../build/POL_POM_QT/lib/ -lVirtualDrive
-
-INCLUDEPATH += $$PWD/../build/POL_POM_QT_LIB_VIRTUALDRIVE/
-DEPENDPATH += $$PWD/../build/POL_POM_QT
-
 unix {
     target.path = /usr/lib
     INSTALLS += target
