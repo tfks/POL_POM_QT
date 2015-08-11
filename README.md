@@ -34,35 +34,33 @@ Currently the structure is as follows.
 			(A plugin that registers to the main widget's show event signal, populates a list of available virtual drives, and sends them back to the main widget's onvirtualdrivelistchange slot)
 
 # Build directory structure
-Since the application uses libraries which require debugging, a system of auto deployment of the libraries at build time has been set-up. This deployes every library to a lib directory under the main application's build directory. This in turn requires that the build directory is known to the library projects. It's advisable to use the following structure to make sure that everything is in place. 
+Since the application uses libraries which require debugging, a system of auto deployment of the libraries at build time has been set-up. This deployes every library to a lib directory under the main application's build directory. 
 
-	<project-root>
-		build/
-			POL_POM_QT/
-				/lib (location for storing the built libraries)
-				/plugins (location for storing the built plugins)
-  
-			POL_POM_QT_LIB_COMMON/
-				(all build files for the common library)
-				(*.so files are copied to /lib on build)
+	<main-build-directory>
+		POL_POM_QT/
+			/bin (location for executables)
+			/lib (location for storing the built libraries)
+			/plugins (location for storing the built plugins)
 
-			POL_POM_QT_LIB_VIRTUALDRIVE/
-				(all build files for the virtual drive library)
-				(*.so files are copied to /lib on build)
+		POL_POM_QT_LIB_COMMON/
+			(all build files for the common library)
+			(*.so files are copied to /lib on build)
 
-			POL_POM_QT_PLUGINS_STEAM/
-				(all build files for the steam installer plugin library)
-				(*.so files are copied to /plugins on build)
-  
-			POL_POM_QT_PLUGINS_VIRTUALDRIVEMANAGER/
-				(all build files for the virtual drive manager plugin library)
-				(*o files are copied to /plugins on build)
+		POL_POM_QT_LIB_VIRTUALDRIVE/
+			(all build files for the virtual drive library)
+			(*.so files are copied to /lib on build)
 
-This structure has been set-up to being able to directly debug both main application and libraries / plugins.
+		POL_POM_QT_PLUGINS_STEAM/
+			(all build files for the steam installer plugin library)
+			(*.so files are copied to /plugins on build)
 
-It is also possible to let QT Creator generate the build directories with the version information but then the *.pro files need to be edited to target the correct build directory of the main application. To do this, change the target in the library / plugin projects and the library paths in all consuming projects to find the libraries which are copied to /lib.
+		POL_POM_QT_PLUGINS_VIRTUALDRIVEMANAGER/
+			(all build files for the virtual drive manager plugin library)
+			(*.so files are copied to /plugins on build)
 
-For plugin projects change the DESTDIR variable. For libraries change the TARGET variable.
+This structure has been set-up to being able to directly debug both main application and libraries / plugins without having to manually deploy all needed libraries.
+
+To make the above system work please use the POL_POM_QT_SOLUTION.pro file to open the complete project structure.
 
 # Qt version
 This project has been built on Qt5. It should compile on Qt4 but this has not yet been tested.
