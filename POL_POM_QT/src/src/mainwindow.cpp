@@ -264,6 +264,8 @@ bool MainWindow::loadPlugins()
         }
     #endif
 
+    // TODO: add logic to search various locations. I.e.: ../plugins for development, ~/.playonlinux/plugins for live
+
     pluginsDir.cd(QString::fromStdString(POL_PLUGIN_DIR));
 
     pluginsDir.setNameFilters(QStringList()<<"*.so");

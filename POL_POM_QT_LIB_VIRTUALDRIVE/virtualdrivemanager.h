@@ -4,7 +4,7 @@
 #include <QObject>
 
 #include "virtualdriveitem.h"
-#include "../../POL_POM_QT_LIB_COMMON/configfilemanager.h"
+#include "../../POL_POM_QT/POL_POM_QT_LIB_COMMON/configfilemanager.h"
 
 class VirtualDriveManager
 {

@@ -8,7 +8,7 @@ QT       -= gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = ../POL_POM_QT/lib/VirtualDrive
+TARGET = $$OUT_PWD/POL_POM_QT/lib/VirtualDrive
 TEMPLATE = lib
 
 DEFINES += POL_POM_QT_LIB_VIRTUALDRIVE_LIBRARY
@@ -23,13 +23,12 @@ HEADERS +=\
     virtualdrivemanager.h \
     constants.h
 
-unix: LIBS += -L$$PWD/../build/POL_POM_QT/lib/ -lPolCommon
+unix: LIBS += -L$$OUT_PWD/../POL_POM_QT/lib/ -lPolCommon
 
-INCLUDEPATH += $$PWD/../POL_POM_QT_LIB_COMMON/
-DEPENDPATH += $$PWD/../build/POL_POM_QT
+INCLUDEPATH += $$OUT_PWD/../POL_POM_QT/
+DEPENDPATH += $$OUT_PWD/../POL_POM_QT/
 
 unix {
     target.path = /usr/lib
     INSTALLS += target
 }
-

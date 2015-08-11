@@ -8,23 +8,26 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = playonlinux
+TARGET = $$OUT_PWD/../bin/playonlinux
 TEMPLATE = app
 
-unix: LIBS += -L$$PWD/../../build/POL_POM_QT/lib/ -lPolCommon
+unix: LIBS += -L$$OUT_PWD/../lib/ -lPolCommon
 
-INCLUDEPATH += $$PWD/../../build/POL_POM_QT_LIB_COMMON/
-DEPENDPATH += $$PWD/../../build/POL_POM_QT
+INCLUDEPATH += $OUT_PWD/../
+DEPENDPATH += $OUT_PWD/../
 
-unix: LIBS += -L$$PWD/../../build/POL_POM_QT/lib/ -lVirtualDrive
+unix: LIBS += -L$$OUT_PWD/../lib/ -lVirtualDrive
 
-INCLUDEPATH += $$PWD/../../build/POL_POM_QT_LIB_VIRTUALDRIVE
-DEPENDPATH += $$PWD/../../build/POL_POM_QT
-
-
+INCLUDEPATH += $OUT_PWD/../
+DEPENDPATH += $OUT_PWD/../
 
 include(src/src.pri)
 include(headers/headers.pri)
 include(ui/ui.pri)
 include(resources/resources.pri)
 
+
+#unix: LIBS += -L$$PWD/../../../../../On-Github/build-POL_POM_QT_SOLUTION-Qt_5_4_2_2_qt5-Debug/POL_POM_QT/lib/ -lPolCommon
+
+#INCLUDEPATH += $$PWD/../../../../../On-Github/build-POL_POM_QT_SOLUTION-Qt_5_4_2_2_qt5-Debug/POL_POM_QT
+#DEPENDPATH += $$PWD/../../../../../On-Github/build-POL_POM_QT_SOLUTION-Qt_5_4_2_2_qt5-Debug/POL_POM_QT

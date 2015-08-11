@@ -11,20 +11,19 @@ CONFIG         += plugin
 QT             += widgets
 INCLUDEPATH    += ../../../POL_POM_QT/src
 TARGET          = $$qtLibraryTarget(VirtualDriveManagerPlugin)
-DESTDIR         = ../../POL_POM_QT/plugins/ #../../build-POL_POM_QT-Desktop-Debug/plugins
+DESTDIR         = $$OUT_PWD/../../../POL_POM_QT/plugins/
 
 unix {
     target.path = /usr/lib
     INSTALLS += target
 }
 
-unix: LIBS += -L$$PWD/../../../build/POL_POM_QT/lib/ -lVirtualDrive
+unix: LIBS += -L$$OUT_PWD/../../../POL_POM_QT/lib/ -lVirtualDrive
 
-INCLUDEPATH += $$PWD/../../../POL_POM_QT_LIB_VIRTUALDRIVE/
-DEPENDPATH += $$PWD/../../../build/POL_POM_QT
+INCLUDEPATH += $$OUT_PWD/../../../POL_POM_QT
+DEPENDPATH += $$OUT_PWD/../../../POL_POM_QT
 
 include(../src/src.pri)
 include(../headers/headers.pri)
 include(../ui/ui.pri)
 include(../resources/resources.pri)
-

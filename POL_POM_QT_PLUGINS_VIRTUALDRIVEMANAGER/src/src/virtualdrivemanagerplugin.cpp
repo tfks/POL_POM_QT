@@ -2,8 +2,8 @@
 #include <QMainWindow>
 
 #include "../headers/virtualdrivemanagerplugin.h"
-#include "virtualdriveitem.h"
-#include "virtualdrivemanager.h"
+#include "../../POL_POM_QT_LIB_VIRTUALDRIVE/virtualdriveitem.h"
+#include "../../POL_POM_QT_LIB_VIRTUALDRIVE/virtualdrivemanager.h"
 
 VirtualDriveManagerPlugin::VirtualDriveManagerPlugin()
 {

@@ -5,7 +5,7 @@
 #include "virtualdrivemanager.h"
 
 #include "constants.h"
-#include "configfilemanager.h"
+#include "../POL_POM_QT_LIB_COMMON/configfilemanager.h"
 
 VirtualDriveManager::VirtualDriveManager()
 {
