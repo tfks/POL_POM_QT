@@ -62,8 +62,6 @@ bool VirtualDriveManagerPlugin::connectPlugin(MainWindow *mainWindow)
     connect(this->mainWindow, SIGNAL(signal_showingMainWindow()), this, SLOT(slot_mainWindowIsShown()));
     connect(this, SIGNAL(signal_VirtualDriveListChange(QList<VirtualDriveItem*>)), this->mainWindow, SLOT(slot_VirtualDriveListChange(QList<VirtualDriveItem*>)));
 
-    //this->getListOfVirtualDrives();
-
     return true;
 }
 

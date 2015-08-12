@@ -3,20 +3,28 @@
 
 #include <QObject>
 
-#include "../headers/pol_pom_qt_plugins_steam_global.h"
-#include "../headers/steamplugininterface.h"
+#include "../../POL_POM_QT/src/headers/plugininterface.h"
+#include "../../POL_POM_QT/src/headers/mainwindow.h"
 
-class SteamPlugin : public QObject, SteamPluginInterface
+#include "../headers/pol_pom_qt_plugins_steam_global.h"
+
+class SteamPlugin : public QObject, IPluginInterface
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "playonlinux.com.SteamPluginInterface" FILE "POL_POM_QT_PLUGINS_STEAM.json")
-    Q_INTERFACES(SteamPluginInterface)
+    Q_INTERFACES(IPluginInterface)
 
 public:
     SteamPlugin();
     ~SteamPlugin();
 
-    int Execute();
+    bool connectPlugin(MainWindow *mainWindow) Q_DECL_OVERRIDE;
+
+private:
+    MainWindow *mainWindow;
+
+private slots:
+    void slot_mainWindowIsShown();
 };
 
 #endif // POL_POM_QT_PLUGINS_STEAM_H
