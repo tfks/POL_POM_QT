@@ -3,8 +3,8 @@
 
 #include <QObject>
 
-#include "headers/pol_pom_qt_plugins_steam_global.h"
-#include "headers/steamplugininterface.h"
+#include "../headers/pol_pom_qt_plugins_steam_global.h"
+#include "../headers/steamplugininterface.h"
 
 class SteamPlugin : public QObject, SteamPluginInterface
 {

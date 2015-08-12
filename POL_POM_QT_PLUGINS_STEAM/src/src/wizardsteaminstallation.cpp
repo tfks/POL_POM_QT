@@ -1,4 +1,4 @@
-#include "headers/wizardsteaminstallation.h"
+#include "../headers/wizardsteaminstallation.h"
 #include "ui_wizardsteaminstallation.h"
 
 WizardSteamInstallation::WizardSteamInstallation(QWidget *parent) :

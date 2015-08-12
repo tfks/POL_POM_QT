@@ -1,4 +1,4 @@
-#include "headers/steamplugin.h"
+#include "../headers/steamplugin.h"
 
 
 SteamPlugin::SteamPlugin()
