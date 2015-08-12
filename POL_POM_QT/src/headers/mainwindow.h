@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QActionGroup>
 #include <QCloseEvent>
+#include <QMenu>
 
 #include "constants.h"
 #include "../../POL_POM_QT_LIB_VIRTUALDRIVE/virtualdriveitem.h"
@@ -47,6 +48,8 @@ private:
 
     QList<IPluginInterface*> loadedPlugins;
 
+    QMenu *virtualDriveAddMenu;
+
     bool virtualDrivesVisible;
 
     void readWindowState();
@@ -66,6 +69,8 @@ signals:
 
 public slots:
     void slot_VirtualDriveListChange(QList<VirtualDriveItem*> virtualDriveItems);
+
+    void slot_addActionToAddVirtualDriveButton(QAction *action, int index);
 };
 
 #endif // MAINWINDOW_H

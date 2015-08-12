@@ -332,6 +332,29 @@
                         </widget>
                        </item>
                        <item>
+                        <widget class="QToolButton" name="tbtnAddVirtualDriveExt">
+                         <property name="text">
+                          <string notr="true"/>
+                         </property>
+                         <property name="icon">
+                          <iconset resource="../resources/mainwindowres.qrc">
+                           <normaloff>:/mainwindow/add_plus_48</normaloff>:/mainwindow/add_plus_48</iconset>
+                         </property>
+                         <property name="iconSize">
+                          <size>
+                           <width>32</width>
+                           <height>32</height>
+                          </size>
+                         </property>
+                         <property name="popupMode">
+                          <enum>QToolButton::MenuButtonPopup</enum>
+                         </property>
+                         <property name="toolButtonStyle">
+                          <enum>Qt::ToolButtonTextBesideIcon</enum>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
                         <widget class="QPushButton" name="pbtnAddVirtualDrive">
                          <property name="statusTip">
                           <string>Add Virtual Drive...</string>

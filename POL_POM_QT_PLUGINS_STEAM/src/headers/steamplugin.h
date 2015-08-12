@@ -23,6 +23,9 @@ public:
 private:
     MainWindow *mainWindow;
 
+signals:
+    void signal_addActionToAddVirtualDriveButton(QAction *action, int index);
+
 private slots:
     void slot_mainWindowIsShown();
 };

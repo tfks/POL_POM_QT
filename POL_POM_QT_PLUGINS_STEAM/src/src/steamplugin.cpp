@@ -23,6 +23,7 @@ bool SteamPlugin::connectPlugin(MainWindow *mainWindow)
     this->mainWindow = mainWindow;
 
     connect(this->mainWindow, SIGNAL(signal_showingMainWindow()), this, SLOT(slot_mainWindowIsShown()));
+    connect(this, SIGNAL(signal_addActionToAddVirtualDriveButton(QAction*, int)), this->mainWindow, SLOT(slot_addActionToAddVirtualDriveButton(QAction*, int)));
 
     return true;
 }
@@ -32,5 +33,10 @@ void SteamPlugin::slot_mainWindowIsShown()
     /* Add code to react on main window showing */
     /* MainWindow needs to expose methods to interact with ui elements */
 
-    //
+    QIcon steamIcon = QIcon(":/wizardsteaminstallation/steam-icon");
+    QString steamText = QString(tr("Create Steam installation"));
+
+    QAction *action = new QAction(steamIcon, steamText, this->mainWindow);
+
+    emit signal_addActionToAddVirtualDriveButton(action, 0);
 }

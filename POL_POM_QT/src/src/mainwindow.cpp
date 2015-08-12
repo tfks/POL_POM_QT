@@ -1,3 +1,5 @@
+#include <QDebug>
+
 #include <QSettings>
 #include <QActionGroup>
 #include <QMessageBox>
@@ -34,6 +36,9 @@ MainWindow::MainWindow(QWidget *parent) :
     this->set_SwitchToVirtualDrivesOrBouquets_toggle(this->virtualDrivesVisible);
 
     this->folderViewStyleGroup = new QActionGroup(this);
+
+    this->virtualDriveAddMenu = new QMenu(tr("Add Virtual Drive"));
+    this->ui->tbtnAddVirtualDriveExt->setMenu(this->virtualDriveAddMenu);
 
     this->setupFolderViewStyleGroup();
 
@@ -303,4 +308,16 @@ void MainWindow::slot_VirtualDriveListChange(QList<VirtualDriveItem *> virtualDr
     foreach (VirtualDriveItem *virtualDriveItem, virtualDriveItems) {
         this->addItemToVirtualDriveList(virtualDriveItem);
     }
+}
+
+void MainWindow::slot_addActionToAddVirtualDriveButton(QAction *action, int index)
+{
+    if (action == NULL) return;
+qDebug() << "action.text: " << action->text();
+    // index 1 or above to let the add virtual drive option be the default
+    // if this wizard is maintained in the main application...
+
+    this->virtualDriveAddMenu->actions().insert(index, action);
+
+
 }

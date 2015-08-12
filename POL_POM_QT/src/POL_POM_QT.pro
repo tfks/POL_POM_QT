@@ -31,3 +31,5 @@ include(resources/resources.pri)
 
 #INCLUDEPATH += $$PWD/../../../../../On-Github/build-POL_POM_QT_SOLUTION-Qt_5_4_2_2_qt5-Debug/POL_POM_QT
 #DEPENDPATH += $$PWD/../../../../../On-Github/build-POL_POM_QT_SOLUTION-Qt_5_4_2_2_qt5-Debug/POL_POM_QT
+
+CONFIG += console
