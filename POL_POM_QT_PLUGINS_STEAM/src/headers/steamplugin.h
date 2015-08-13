@@ -28,6 +28,8 @@ signals:
 
 private slots:
     void slot_mainWindowIsShown();
+
+    void slot_actionCreateSteamInstallation_triggered();
 };
 
 #endif // POL_POM_QT_PLUGINS_STEAM_H

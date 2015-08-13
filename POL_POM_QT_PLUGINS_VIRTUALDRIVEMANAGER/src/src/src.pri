@@ -1,4 +1,5 @@
  
 SOURCES += \
-    $$PWD/virtualdrivemanagerplugin.cpp
+    $$PWD/virtualdrivemanagerplugin.cpp \
+    $$PWD/wizardnewvirtualdrive.cpp \
 

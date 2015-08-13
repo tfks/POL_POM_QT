@@ -1,4 +1,5 @@
 #include "../headers/steamplugin.h"
+#include "../headers/wizardsteaminstallation.h"
 
 
 SteamPlugin::SteamPlugin()
@@ -38,5 +39,21 @@ void SteamPlugin::slot_mainWindowIsShown()
 
     QAction *action = new QAction(steamIcon, steamText, this->mainWindow);
 
-    emit signal_addActionToAddVirtualDriveButton(action, 0);
+    action->setStatusTip(QString(tr("Create a Steam installation with separate Virtual Drives for each game")));
+
+    connect(action, SIGNAL(triggered(bool)), this, SLOT(slot_actionCreateSteamInstallation_triggered()));
+
+    emit signal_addActionToAddVirtualDriveButton(action, 1);
+}
+
+void SteamPlugin::slot_actionCreateSteamInstallation_triggered()
+{
+    WizardSteamInstallation *wizardSteamInstallation = new WizardSteamInstallation(mainWindow);
+
+    if (wizardSteamInstallation->exec() == QDialog::Accepted)
+    {
+        //
+    }
+
+    delete wizardSteamInstallation;
 }

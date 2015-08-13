@@ -11,10 +11,9 @@
 
 #include "ui_mainwindow.h"
 
-#include "headers/dialogabout.h"
-#include "headers/wizardnewvirtualdrive.h"
-#include "headers/dialogaddbouquet.h"
-#include "headers/dialogconfigurevirtualdrive.h"
+#include "../headers/dialogabout.h"
+#include "../headers/dialogaddbouquet.h"
+#include "../headers/dialogconfigurevirtualdrive.h"
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -161,15 +160,7 @@ void MainWindow::on_SwitchToVirtualDrivesOrBouquets_toggle()
 
 void MainWindow::on_pbtnAddVirtualDrive_clicked()
 {
-    WizardNewVirtualDrive *wizardNewVirtualDrive = new WizardNewVirtualDrive(this);
-
-    if (wizardNewVirtualDrive->exec() == QDialog::Accepted)
-    {
-        // read virtual drive from property of dialog and save to disk;
-        // update main window to reflect added virtual drive (reload data);
-    }
-
-    delete wizardNewVirtualDrive;
+    // main button click find first item in menu en execute.
 }
 
 void MainWindow::on_pbtnAddNewBouquet_clicked()
@@ -313,11 +304,17 @@ void MainWindow::slot_VirtualDriveListChange(QList<VirtualDriveItem *> virtualDr
 void MainWindow::slot_addActionToAddVirtualDriveButton(QAction *action, int index)
 {
     if (action == NULL) return;
-qDebug() << "action.text: " << action->text();
-    // index 1 or above to let the add virtual drive option be the default
-    // if this wizard is maintained in the main application...
 
-    this->virtualDriveAddMenu->actions().insert(index, action);
+    QList<QAction*> actionList = this->virtualDriveAddMenu->actions();
 
+    if (!actionList.empty() && actionList.count() > index)
+    {
+        QAction *actionAtIndex = actionList.at(index);
 
+        this->virtualDriveAddMenu->insertAction(actionAtIndex, action);
+    }
+    else
+    {
+        this->virtualDriveAddMenu->addAction(action);
+    }
 }

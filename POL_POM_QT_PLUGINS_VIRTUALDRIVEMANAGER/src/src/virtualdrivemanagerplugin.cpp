@@ -5,6 +5,8 @@
 #include "../../POL_POM_QT_LIB_VIRTUALDRIVE/virtualdriveitem.h"
 #include "../../POL_POM_QT_LIB_VIRTUALDRIVE/virtualdrivemanager.h"
 
+#include "../headers/wizardnewvirtualdrive.h"
+
 VirtualDriveManagerPlugin::VirtualDriveManagerPlugin()
 {
     this->listOfVirtualDrives = QList<VirtualDriveItem*>();
@@ -61,6 +63,19 @@ bool VirtualDriveManagerPlugin::connectPlugin(MainWindow *mainWindow)
 
     connect(this->mainWindow, SIGNAL(signal_showingMainWindow()), this, SLOT(slot_mainWindowIsShown()));
     connect(this, SIGNAL(signal_VirtualDriveListChange(QList<VirtualDriveItem*>)), this->mainWindow, SLOT(slot_VirtualDriveListChange(QList<VirtualDriveItem*>)));
+    connect(this, SIGNAL(signal_addActionToAddVirtualDriveButton(QAction*, int)), this->mainWindow, SLOT(slot_addActionToAddVirtualDriveButton(QAction*, int)));
+
+    // add an action to the add virtual drive menu first index.
+    QIcon addVirtualDriveIcon = QIcon(":/mainwindow/add_plus_48");
+    QString addVirtualDriveText = QString(tr("Add Virtual Drive"));
+
+    QAction *action = new QAction(addVirtualDriveIcon, addVirtualDriveText, this->mainWindow);
+
+    action->setStatusTip(QString(tr("Add a new Virtual Drive")));
+
+    connect(action, SIGNAL(triggered(bool)), this, SLOT(slot_actionAddNewVirtualDrive_triggered()));
+
+    emit signal_addActionToAddVirtualDriveButton(action, 0);
 
     return true;
 }
@@ -71,4 +86,15 @@ void VirtualDriveManagerPlugin::slot_mainWindowIsShown()
     /* MainWindow needs to expose methods to interact with ui elements */
 
     this->getListOfVirtualDrives();
+}
+
+void VirtualDriveManagerPlugin::slot_actionAddNewVirtualDrive_triggered()
+{
+    WizardNewVirtualDrive *wizardNewVirtualDrive = new WizardNewVirtualDrive(mainWindow);
+
+    if (wizardNewVirtualDrive->exec() == QDialog::Accepted) {
+        //
+    }
+
+    delete wizardNewVirtualDrive;
 }
