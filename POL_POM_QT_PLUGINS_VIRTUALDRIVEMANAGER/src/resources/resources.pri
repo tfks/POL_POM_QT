@@ -1,2 +1,3 @@
 RESOURCES += \
-    $$PWD/main.qrc
+    $$PWD/main.qrc \
+    $$PWD/wizardnewvirtualdriveres.qrc

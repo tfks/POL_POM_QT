@@ -14,7 +14,7 @@
    <string>Add Virtual Drive</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../resources/commonres.qrc">
+   <iconset resource="../../../POL_POM_QT/src/resources/commonres.qrc">
     <normaloff>:/common/playonlinux32</normaloff>:/common/playonlinux32</iconset>
   </property>
   <property name="modal">
@@ -68,7 +68,7 @@ background-position: top left;
         <string notr="true"/>
        </property>
        <property name="pixmap">
-        <pixmap resource="../resources/mainwindowres.qrc">:/mainwindow/add_plus_48</pixmap>
+        <pixmap resource="../../../POL_POM_QT/src/resources/mainwindowres.qrc">:/mainwindow/add_plus_48</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -174,7 +174,7 @@ background-position: top left;
         <string notr="true"/>
        </property>
        <property name="pixmap">
-        <pixmap resource="../resources/mainwindowres.qrc">:/mainwindow/add_plus_48</pixmap>
+        <pixmap resource="../../../POL_POM_QT/src/resources/mainwindowres.qrc">:/mainwindow/add_plus_48</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -443,7 +443,7 @@ background-position: top left;
         <string notr="true"/>
        </property>
        <property name="pixmap">
-        <pixmap resource="../resources/mainwindowres.qrc">:/mainwindow/add_plus_48</pixmap>
+        <pixmap resource="../../../POL_POM_QT/src/resources/mainwindowres.qrc">:/mainwindow/add_plus_48</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -583,7 +583,7 @@ background-position: top left;
         <string notr="true"/>
        </property>
        <property name="pixmap">
-        <pixmap resource="../resources/mainwindowres.qrc">:/mainwindow/add_plus_48</pixmap>
+        <pixmap resource="../../../POL_POM_QT/src/resources/mainwindowres.qrc">:/mainwindow/add_plus_48</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -693,7 +693,7 @@ background-position: top left;
         <string notr="true"/>
        </property>
        <property name="pixmap">
-        <pixmap resource="../resources/mainwindowres.qrc">:/mainwindow/add_plus_48</pixmap>
+        <pixmap resource="../../../POL_POM_QT/src/resources/mainwindowres.qrc">:/mainwindow/add_plus_48</pixmap>
        </property>
       </widget>
      </widget>
@@ -795,7 +795,7 @@ background-position: top left;
         <string notr="true"/>
        </property>
        <property name="pixmap">
-        <pixmap resource="../resources/mainwindowres.qrc">:/mainwindow/add_plus_48</pixmap>
+        <pixmap resource="../../../POL_POM_QT/src/resources/mainwindowres.qrc">:/mainwindow/add_plus_48</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -908,8 +908,8 @@ background-position: top left;
   </widget>
  </widget>
  <resources>
-  <include location="../resources/commonres.qrc"/>
-  <include location="../resources/mainwindowres.qrc"/>
+  <include location="../../../POL_POM_QT/src/resources/commonres.qrc"/>
+  <include location="../../../POL_POM_QT/src/resources/mainwindowres.qrc"/>
  </resources>
  <connections/>
 </ui>

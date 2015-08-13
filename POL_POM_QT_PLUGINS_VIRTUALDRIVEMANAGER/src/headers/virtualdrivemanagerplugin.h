@@ -29,9 +29,12 @@ private:
 
 signals:
     void signal_VirtualDriveListChange(QList<VirtualDriveItem*> virtualDriveItems);
+    void signal_addActionToAddVirtualDriveButton(QAction *action, int index);
 
 private slots:
     void slot_mainWindowIsShown();
+
+    void slot_actionAddNewVirtualDrive_triggered();
 };
 
 #endif // VIRTUALDRIVEMANAGERPLUGIN_H

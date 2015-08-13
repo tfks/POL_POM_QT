@@ -4,7 +4,6 @@ HEADERS  += \
     $$PWD/dialogabout.h \
     $$PWD/dialogaddbouquet.h \
     $$PWD/dialogconfigurevirtualdrive.h \
-    $$PWD/wizardnewvirtualdrive.h \
     $$PWD/plugininterface.h
 
 SOURCES +=
