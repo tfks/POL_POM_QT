@@ -306,7 +306,7 @@
                      <number>0</number>
                     </property>
                     <item>
-                     <widget class="QGroupBox" name="gbxVirtualDrivesAndBouquetsContent_2">
+                     <widget class="QGroupBox" name="gbxVirtualDrivesAndBouquetsControls">
                       <property name="title">
                        <string notr="true"/>
                       </property>

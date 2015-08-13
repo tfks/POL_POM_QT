@@ -1,4 +1,4 @@
-#include "headers/dialogconfigurevirtualdrive.h"
+#include "../headers/dialogconfigurevirtualdrive.h"
 #include "ui_dialogconfigurevirtualdrive.h"
 
 DialogConfigureVirtualDrive::DialogConfigureVirtualDrive(QWidget *parent) :

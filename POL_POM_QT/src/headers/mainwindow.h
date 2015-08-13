@@ -71,6 +71,7 @@ public slots:
     void slot_VirtualDriveListChange(QList<VirtualDriveItem*> virtualDriveItems);
 
     void slot_addActionToAddVirtualDriveButton(QAction *action, int index);
+    void slot_addVirtualDriveControlButton(QAction *action, int index);
 };
 
 #endif // MAINWINDOW_H

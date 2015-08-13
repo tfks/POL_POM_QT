@@ -13,7 +13,6 @@
 
 #include "../headers/dialogabout.h"
 #include "../headers/dialogaddbouquet.h"
-#include "../headers/dialogconfigurevirtualdrive.h"
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -214,11 +213,7 @@ void MainWindow::on_pbtnDeleteBouquet_clicked()
 
 void MainWindow::on_pbtnConfigureVirtualDrive_clicked()
 {
-    DialogConfigureVirtualDrive *dialogConfigureVirtualDrive = new DialogConfigureVirtualDrive(this);
-
-    dialogConfigureVirtualDrive->exec();
-
-    delete dialogConfigureVirtualDrive;
+//
 }
 
 void MainWindow::addItemToVirtualDriveList(VirtualDriveItem *virtualDriveListItem)
@@ -301,6 +296,9 @@ void MainWindow::slot_VirtualDriveListChange(QList<VirtualDriveItem *> virtualDr
     }
 }
 
+// These slots can be combined to add a QToolButton when no action was previously added:
+// void MainWindow::slot_addVirtualDriveControlButton(QIcon mainButtonIcon, QAction *action, int index, bool singleActionButton)
+
 void MainWindow::slot_addActionToAddVirtualDriveButton(QAction *action, int index)
 {
     if (action == NULL) return;
@@ -317,4 +315,15 @@ void MainWindow::slot_addActionToAddVirtualDriveButton(QAction *action, int inde
     {
         this->virtualDriveAddMenu->addAction(action);
     }
+}
+
+void MainWindow::slot_addVirtualDriveControlButton(QAction *action, int index)
+{
+    if (action == NULL) return;
+
+    QToolButton *toolButton = new QToolButton(this->ui->gbxVirtualDrivesAndBouquetsControls);
+
+    toolButton->addAction(action);
+
+
 }
