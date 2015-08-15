@@ -9,7 +9,7 @@ The plugin system also makes it easier for others to develop a new feature witho
 
 The following rules should be kept in mind when developing this application.
 
-1. The main application dictates what can be done with it. When a plugin should be allowed to add a button to the main widget then the main widget should provide a signal to do so. There is no direct interaction with the main applications UI elements from a plugin. Thus the main application provides an API for the plugin developers to use.
+1. The main application dictates what can be done with it. When a plugin should be allowed to add a button to the main widget then the main widget should provide a slot to do so. There is no direct interaction with the main applications UI elements from a plugin. Thus the main application provides an API for the plugin developers to use.
 
 2. Libraries should not cross reference. For instance. The common library is used by the virtual drive library. Therefore the methods in the common library should be of a lower level type than the methods in the virtual drive library. In other words, the common library should hold methods that handle very basic functionality which can be used in all layers of the application, the virtual drive library handles solely virtual drive functionality. The virtual drive library can use the basic functionality of the common library but never vice versa.
 
