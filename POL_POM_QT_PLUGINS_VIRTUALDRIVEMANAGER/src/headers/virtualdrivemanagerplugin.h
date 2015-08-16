@@ -25,11 +25,14 @@ private:
     MainWindow *mainWindow;
     QList<VirtualDriveItem*> listOfVirtualDrives;
 
+    QToolButton *addVirtualDriveButton;
+
     void getListOfVirtualDrives();
+    void createAddVirtualDriveButton();
 
 signals:
     void signal_VirtualDriveListChange(QList<VirtualDriveItem*> virtualDriveItems);
-    void signal_addActionToAddVirtualDriveButton(QAction *action, int index);
+    void signal_addNewVirtualDriveButton(QToolButton *addVirtualDriveButton);
 
 private slots:
     void slot_mainWindowIsShown();

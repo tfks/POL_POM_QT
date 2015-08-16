@@ -11,6 +11,34 @@ SteamPlugin::~SteamPlugin()
 
 }
 
+// should go to libcommonui as generic method...
+void SteamPlugin::createAddVirtualDriveButton()
+{
+    this->addVirtualDriveButton = new QToolButton();
+
+    this->addVirtualDriveButton->setObjectName("addVirtualDriveButton");
+
+    this->addVirtualDriveButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    this->addVirtualDriveButton->setPopupMode(QToolButton::MenuButtonPopup);
+
+    this->addVirtualDriveButton->setText(QString(tr("Add Virtual Drive")));
+    this->addVirtualDriveButton->setIcon(QIcon(":/mainwindow/add_plus_48"));
+
+    QMenu *menuForAddVirtualDriveButton = new QMenu(this->addVirtualDriveButton);
+
+    QAction *actionAddVirtualDrive = new QAction(QIcon(":/wizardsteaminstallation/steam-icon"),
+                                                 QString(tr("Create Steam installation")),
+                                                 menuForAddVirtualDriveButton);
+
+    actionAddVirtualDrive->setStatusTip(QString(tr("Create a Steam installation with separate Virtual Drives for each game")));
+
+    menuForAddVirtualDriveButton->addAction(actionAddVirtualDrive);
+
+    this->addVirtualDriveButton->setMenu(menuForAddVirtualDriveButton);
+
+    connect(actionAddVirtualDrive, SIGNAL(triggered(bool)), this, SLOT(slot_actionCreateSteamInstallation_triggered()));
+}
+
 bool SteamPlugin::connectPlugin(MainWindow *mainWindow)
 {
     /*
@@ -24,7 +52,12 @@ bool SteamPlugin::connectPlugin(MainWindow *mainWindow)
     this->mainWindow = mainWindow;
 
     connect(this->mainWindow, SIGNAL(signal_showingMainWindow()), this, SLOT(slot_mainWindowIsShown()));
-    connect(this, SIGNAL(signal_addActionToAddVirtualDriveButton(QAction*, int)), this->mainWindow, SLOT(slot_addActionToAddVirtualDriveButton(QAction*, int)));
+    connect(this, SIGNAL(signal_addNewVirtualDriveButton(QToolButton*)), this->mainWindow, SLOT(slot_addVirtualDriveControlButton(QToolButton*)));
+
+    // add a toolbutton or it's action to the add virtual drive menu first index
+    this->createAddVirtualDriveButton();
+
+    emit signal_addNewVirtualDriveButton(this->addVirtualDriveButton);
 
     return true;
 }
@@ -34,16 +67,6 @@ void SteamPlugin::slot_mainWindowIsShown()
     /* Add code to react on main window showing */
     /* MainWindow needs to expose methods to interact with ui elements */
 
-    QIcon steamIcon = QIcon(":/wizardsteaminstallation/steam-icon");
-    QString steamText = QString(tr("Create Steam installation"));
-
-    QAction *action = new QAction(steamIcon, steamText, this->mainWindow);
-
-    action->setStatusTip(QString(tr("Create a Steam installation with separate Virtual Drives for each game")));
-
-    connect(action, SIGNAL(triggered(bool)), this, SLOT(slot_actionCreateSteamInstallation_triggered()));
-
-    emit signal_addActionToAddVirtualDriveButton(action, 1);
 }
 
 void SteamPlugin::slot_actionCreateSteamInstallation_triggered()

@@ -22,9 +22,12 @@ public:
 
 private:
     MainWindow *mainWindow;
+    QToolButton *addVirtualDriveButton;
+
+    void createAddVirtualDriveButton();
 
 signals:
-    void signal_addActionToAddVirtualDriveButton(QAction *action, int index);
+    void signal_addNewVirtualDriveButton(QToolButton *addVirtualDriveButton);
 
 private slots:
     void slot_mainWindowIsShown();

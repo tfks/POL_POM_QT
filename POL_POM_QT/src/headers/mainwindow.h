@@ -5,6 +5,7 @@
 #include <QActionGroup>
 #include <QCloseEvent>
 #include <QMenu>
+#include <QToolButton>
 
 #include "constants.h"
 #include "../../POL_POM_QT_LIB_VIRTUALDRIVE/virtualdriveitem.h"
@@ -70,8 +71,7 @@ signals:
 public slots:
     void slot_VirtualDriveListChange(QList<VirtualDriveItem*> virtualDriveItems);
 
-    void slot_addActionToAddVirtualDriveButton(QAction *action, int index);
-    void slot_addVirtualDriveControlButton(QAction *action, int index);
+    void slot_addVirtualDriveControlButton(QToolButton *buttonToAdd);
 };
 
 #endif // MAINWINDOW_H

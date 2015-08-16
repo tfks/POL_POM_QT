@@ -5,6 +5,7 @@
 #include <QMessageBox>
 #include <QDir>
 #include <QPluginLoader>
+#include <QLayout>
 
 #include "headers/mainwindow.h"
 #include "headers/plugininterface.h"
@@ -297,33 +298,50 @@ void MainWindow::slot_VirtualDriveListChange(QList<VirtualDriveItem *> virtualDr
 }
 
 // These slots can be combined to add a QToolButton when no action was previously added:
-// void MainWindow::slot_addVirtualDriveControlButton(QIcon mainButtonIcon, QAction *action, int index, bool singleActionButton)
 
-void MainWindow::slot_addActionToAddVirtualDriveButton(QAction *action, int index)
+void MainWindow::slot_addVirtualDriveControlButton(QToolButton *buttonToAdd)
 {
-    if (action == NULL) return;
+    /*
+     * check for an existing button via its text. If not there, add a new button and a menu, else add function to the existing button menu.
+     */
 
-    QList<QAction*> actionList = this->virtualDriveAddMenu->actions();
+    // user defined buttons go last. The first one is default, after that user defined buttons are added.
+    // best is to keep a list of elements added to various locations, optionally with an index, and
+    // after sorting remove the spacer at the end, insert all items and than add a spacer again.
 
-    if (!actionList.empty() && actionList.count() > index)
+    if (buttonToAdd != NULL)
     {
-        QAction *actionAtIndex = actionList.at(index);
+        // this doesn't work. The button has already been assigned to the groupbox. So it finds itself overiding the other ones action.
+        QToolButton *buttonToFind = this->ui->gbxVirtualDrivesControls->findChild<QToolButton*>(buttonToAdd->objectName());
 
-        this->virtualDriveAddMenu->insertAction(actionAtIndex, action);
+        if (buttonToFind != NULL)
+        {
+            // there is a button with this name in the groupbox. Add the provided button's actions to it's menu.
+            foreach (QAction *actionSource, buttonToAdd->menu()->actions())
+            {
+                QMessageBox::information(this, QString(tr("Info")), QString(actionSource->text()));
+
+                QAction *copiedAction = qobject_cast<QAction*>(actionSource);
+
+                copiedAction->setParent(buttonToFind->menu());
+
+                buttonToFind->menu()->addAction(copiedAction);
+            }
+
+            delete buttonToAdd;
+        }
+        else
+        {
+            // there isn't a button with this name in the groupbox. Add the provided button.
+            buttonToAdd->setParent(this->ui->gbxVirtualDrivesControls);
+            buttonToAdd->setDefaultAction(buttonToAdd->menu()->actions().first());
+
+
+
+
+            this->ui->gbxVirtualDrivesControls->layout()->addWidget(buttonToAdd);
+
+            QMessageBox::information(this, QString(tr("Info")), QString(buttonToAdd->menu()->actions().first()->text()));
+        }
     }
-    else
-    {
-        this->virtualDriveAddMenu->addAction(action);
-    }
-}
-
-void MainWindow::slot_addVirtualDriveControlButton(QAction *action, int index)
-{
-    if (action == NULL) return;
-
-    QToolButton *toolButton = new QToolButton(this->ui->gbxVirtualDrivesAndBouquetsControls);
-
-    toolButton->addAction(action);
-
-
 }
