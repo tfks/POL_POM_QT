@@ -13,8 +13,6 @@
 #include "ui_mainwindow.h"
 
 #include "../headers/dialogabout.h"
-#include "../headers/dialogaddbouquet.h"
-
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -165,7 +163,7 @@ void MainWindow::on_pbtnAddVirtualDrive_clicked()
 
 void MainWindow::on_pbtnAddNewBouquet_clicked()
 {
-    DialogAddBouquet *dialogAddBouquet = new DialogAddBouquet(this);
+    /*DialogAddBouquet *dialogAddBouquet = new DialogAddBouquet(this);
 
     if (dialogAddBouquet->exec() == QDialog::Accepted)
     {
@@ -173,7 +171,7 @@ void MainWindow::on_pbtnAddNewBouquet_clicked()
         // update main window to reflect added Bouquet (reload data);
     }
 
-    delete dialogAddBouquet;
+    delete dialogAddBouquet;*/
 }
 
 void MainWindow::on_pbtnDeleteVirtualDrive_clicked()
@@ -196,7 +194,7 @@ void MainWindow::on_pbtnDeleteVirtualDrive_clicked()
 
 void MainWindow::on_pbtnDeleteBouquet_clicked()
 {
-    QMessageBox::StandardButton dialogResult;
+    /*QMessageBox::StandardButton dialogResult;
 
     dialogResult = QMessageBox::question(this,
                                          QString::fromStdString(POL_MSG_DELETE_BOUQUET_TITLE),
@@ -209,7 +207,7 @@ void MainWindow::on_pbtnDeleteBouquet_clicked()
         // Reload the lists;
     } else {
 
-    }
+    }*/
 }
 
 void MainWindow::on_pbtnConfigureVirtualDrive_clicked()
@@ -302,12 +300,14 @@ void MainWindow::slot_VirtualDriveListChange(QList<VirtualDriveItem *> virtualDr
 void MainWindow::slot_addVirtualDriveControlButton(QToolButton *buttonToAdd)
 {
     /*
-     * check for an existing button via its text. If not there, add a new button and a menu, else add function to the existing button menu.
+     * check for an existing button via its object name. If not there, add a new button and a menu, else add function to the existing button menu.
      */
 
     // user defined buttons go last. The first one is default, after that user defined buttons are added.
-    // best is to keep a list of elements added to various locations, optionally with an index, and
+    // best is to keep a list of elements added to various locations, optionaly with an index, and
     // after sorting remove the spacer at the end, insert all items and than add a spacer again.
+
+    // This needs a object oriented appproach.
 
     if (buttonToAdd != NULL)
     {

@@ -2,13 +2,13 @@
 
 #include "headers/constants.h"
 
-#include "headers/dialogaddbouquet.h"
-#include "ui_dialogaddbouquet.h"
+#include "../headers/dialognewbouquet.h"
+#include "ui_dialognewbouquet.h"
 
 
-DialogAddBouquet::DialogAddBouquet(QWidget *parent) :
+DialogNewBouquet::DialogNewBouquet(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::DialogAddBouquet)
+    ui(new Ui::DialogNewBouquet)
 {
     ui->setupUi(this);
 
@@ -16,12 +16,12 @@ DialogAddBouquet::DialogAddBouquet(QWidget *parent) :
     this->connect(ui->btnbOkCancel, SIGNAL(rejected()), this, SLOT(on_pbtnCancel_clicked()));
 }
 
-DialogAddBouquet::~DialogAddBouquet()
+DialogNewBouquet::~DialogNewBouquet()
 {
     delete ui;
 }
 
-void DialogAddBouquet::on_pbtnBrowse_clicked()
+void DialogNewBouquet::on_pbtnBrowse_clicked()
 {
     QString fileName = QFileDialog::getOpenFileName(this,
                                                     QString::fromStdString(POL_SELECT_ICON_FOR_BOUQUET),
@@ -35,14 +35,14 @@ void DialogAddBouquet::on_pbtnBrowse_clicked()
     }
 }
 
-void DialogAddBouquet::on_pbtnOk_clicked()
+void DialogNewBouquet::on_pbtnOk_clicked()
 {
     // Get all data from dialog elements and store in property.
 
     done(QDialog::Accepted);
 }
 
-void DialogAddBouquet::on_pbtnCancel_clicked()
+void DialogNewBouquet::on_pbtnCancel_clicked()
 {
     done(QDialog::Rejected);
 }

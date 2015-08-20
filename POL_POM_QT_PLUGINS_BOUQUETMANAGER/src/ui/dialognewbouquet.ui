@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>DialogAddBouquet</class>
- <widget class="QDialog" name="DialogAddBouquet">
+ <class>DialogNewBouquet</class>
+ <widget class="QDialog" name="DialogNewBouquet">
   <property name="windowModality">
    <enum>Qt::ApplicationModal</enum>
   </property>
@@ -17,7 +17,7 @@
    <string>Add new Bouquet</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="commonres.qrc">
+   <iconset resource="../../../POL_POM_QT/src/resources/commonres.qrc">
     <normaloff>:/common/playonlinux32</normaloff>:/common/playonlinux32</iconset>
   </property>
   <property name="modal">
@@ -170,13 +170,13 @@
   </layout>
  </widget>
  <resources>
-  <include location="commonres.qrc"/>
+  <include location="../../../POL_POM_QT/src/resources/commonres.qrc"/>
  </resources>
  <connections>
   <connection>
    <sender>btnbOkCancel</sender>
    <signal>accepted()</signal>
-   <receiver>DialogAddBouquet</receiver>
+   <receiver>DialogNewBouquet</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -192,7 +192,7 @@
   <connection>
    <sender>btnbOkCancel</sender>
    <signal>rejected()</signal>
-   <receiver>DialogAddBouquet</receiver>
+   <receiver>DialogNewBouquet</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

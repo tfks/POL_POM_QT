@@ -1,0 +1,2 @@
+FORMS += \
+    $$PWD/dialognewbouquet.ui
