@@ -25,7 +25,7 @@ Currently the structure is as follows.
 			(a common library for sharing data types and common methods between application, libraries and plugins)
 
 		POL_POM_QT_LIB_VIRTUALDRIVE 
-			(a common library which provides basic tasks for handline virtual drives)
+			(a common library which provides basic tasks for handling virtual drives)
 
 		POL_POM_QT_PLUGINS_STEAM
 			(a study which demonstrates the use of a plugin system, comlete with UI to present to the user)
